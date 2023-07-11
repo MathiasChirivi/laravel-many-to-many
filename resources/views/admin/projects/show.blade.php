@@ -10,6 +10,7 @@
         <p>{{  $project->description }}</p>
         <h2>{{  $project->repository }}</h2>
     </div>
+    <a href="{{ route("admin.projects.edit",$project ) }}" class="btn btn-dark">Modifica il progetto</a>
 </div>
 
 @endsection

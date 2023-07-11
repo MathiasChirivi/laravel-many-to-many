@@ -19,6 +19,5 @@
 			</div>
 		</div>
 	</div>
-	<a class="btn btn-dark mt-3" href="{{ route('admin.projects.create') }}">Crea progetto</a>
 </div>
 @endsection
