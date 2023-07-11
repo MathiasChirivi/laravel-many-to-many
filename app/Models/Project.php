@@ -13,5 +13,10 @@ class Project extends Model
         "title",
         "description",
         "repository",
+        "tipe_id",
     ];
+
+    public function tipe(){
+        return $this->belongsTo(Tipe::class);
+    }
 }

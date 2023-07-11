@@ -24,7 +24,18 @@ class UpdateProjectRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "title" =>"required|min:4|max:50",
+            "description" =>"required|min:4|max:65535",
+            "repository" =>"nullable|url|min:4|max:255",
+            "tipe_id" => "nullable|exists:tipes,id"
+        ];
+    }
+
+    public function messages(){
+        return[
+            'title.required'=>'Il campo Titolo è richiesto',
+            'description.required'=>'Il campo descrizione è richiesto',
+            'repository.url'=>'Il campo repository deve essere un URL',
         ];
     }
 }

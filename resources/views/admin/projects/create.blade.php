@@ -38,6 +38,14 @@
                 <div class="invalid-feedback">Error: {{$message}}</div>
             @enderror
 
+            <label for="tipe_id">Type</label>
+            <select class="form-control mb-3" name="tipe_id" id="tipe_id">
+                <option value="" selected>Seleziona il tipe</option>
+                @foreach ($tipes as $tipe)
+                    <option value="{{$tipe->id}}"> {{$tipe->name}} </option>
+                @endforeach
+            </select>
+
             <input class="form-control mt-4 btn btn-primary" type="submit" value="Crea Progetto">
         </form>
     </div>
