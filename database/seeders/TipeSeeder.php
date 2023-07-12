@@ -16,7 +16,7 @@ class TipeSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        for ($i=0; $i < 10; $i++) { 
+        for ($i=0; $i < 3; $i++) { 
             $project = new Tipe();
             $project->name = $faker->words(2, true);
             $project->save();
