@@ -44,13 +44,16 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
+
         $data = $request->validated();
 
         $newProject = new Project();
         $newProject->fill($data);
         $newProject->save();
 
-        return to_route("admin.projects.show", $newProject->id);
+        $newProject->tecnologys()->attach($data["tecnologys"]);
+
+        return to_route("admin.projects.show", $newProject);
     }
 
     /**
@@ -88,10 +91,12 @@ class ProjectController extends Controller
     public function update(UpdateProjectRequest $request, Project $project)
     {
         $data = $request->validated();
-        $project->fill($data);
-        $project->update();
-        
-        return to_route("admin.projects.show", $project->id);
+
+        $project->update($data);
+
+        $project->tecnologys()->sync($data->tecnologys);
+
+        return to_route("admin.projects.show", $project);
     }
 
     /**
