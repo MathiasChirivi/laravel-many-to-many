@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Tipe;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Tipe;
-use Faker\Generator as Faker;
 
 class TipeSeeder extends Seeder
 {
@@ -14,12 +13,13 @@ class TipeSeeder extends Seeder
      *
      * @return void
      */
-    public function run(Faker $faker)
+    public function run()
     {
-        for ($i=0; $i < 10; $i++) { 
-            $project = new Tipe();
-            $project->name = $faker->words(2, true);
-            $project->save();
+        $typeArray = config('types');
+        foreach ($typeArray as $type) {
+            $newType = new Tipe();
+            $newType->name = $type['name'];
+            $newType->save();
         }
     }
 }

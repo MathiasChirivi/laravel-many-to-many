@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Tipe;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -24,5 +23,6 @@ class DatabaseSeeder extends Seeder
 
         $this->call([TipeSeeder::class]);
         $this->call([ProjectSeeder::class]);
+        $this->call([TechnologySeeder::class]);
     }
 }
