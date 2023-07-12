@@ -25,6 +25,7 @@ class ProjectSeeder extends Seeder
             $project->description = $faker->text(500);
             $project->repository = $faker->sentence();
             $project->tipe_id = $tipes->random()->id;
+            $project->tipe_id = $tipes->random()->id;
             $project->save();
         }
     }
