@@ -27,7 +27,8 @@ class UpdateProjectRequest extends FormRequest
             "title" =>"required|min:4|max:50",
             "description" =>"required|min:4|max:65535",
             "repository" =>"nullable|url|min:4|max:255",
-            "tipe_id" => "nullable|exists:tipes,id"
+            "tipe_id" => "nullable|exists:tipes,id",
+            "technologies" => "nullable|exists:technologies,id",
         ];
     }
 

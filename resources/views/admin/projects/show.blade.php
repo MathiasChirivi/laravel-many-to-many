@@ -7,12 +7,12 @@
         <h2>Vista dettaglio post</h2>
         <h1>{{  $project->title }}</h1>
         <h3>Categoria: {{$project->tipe ? $project->tipe->name : "Senza Tipe"}} </h3>
-        <h4>Tecnologia usata:</h4>
         <ul>
-            @foreach ($technologies ?? [] as $technology)
-                <li>
-                    {{$technology->name}}
-                </li>            
+            @foreach ($project->technologies as $technology)
+            <li class="list-unstyled">
+                <h4>Tecnologia usata:  {{$technology->name}}</h4>
+                
+            </li>            
             @endforeach
         </ul>
         <p>{{  $project->description }}</p>

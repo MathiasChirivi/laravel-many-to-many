@@ -38,14 +38,15 @@
                 <div class="invalid-feedback">Error: {{$message}}</div>
             @enderror
 
-            <label for="tipe_id">Type</label>
+            <label for="tipe_id">Scegli il tipo di pregetto</label>
             <select class="form-control mb-3" name="tipe_id" id="tipe_id">
                 <option value="" selected>Seleziona il tipe</option>
                 @foreach ($tipes as $tipe)
                     <option value="{{$tipe->id}}"> {{$tipe->name}} </option>
                 @endforeach
             </select>
-
+            
+            <h5 class="mb-3">Scegli la tecnologia che devi usare</h5>
             @foreach ($technologies as $i => $technology)
             <div class="form-check">
                 <input type="checkbox" value="{{$technology->id}}" name="technologies[]" id="technologies{{$i}}" class="form-check-input">

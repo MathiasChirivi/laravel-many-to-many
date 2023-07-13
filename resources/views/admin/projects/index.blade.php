@@ -6,7 +6,7 @@
     <div class="row justify-content-between">
         @foreach ($projects as $project)
         <div class="col-4">
-            <div class="card mt-3" style="height: 25rem;">
+            <div class="card mt-3" style="">
                 <div class="card-body h-25">
                     <h5 class="card-title"><strong>Nome del progetto:</strong> {{ $project->title }}</h5>
                     <p class="card-text"><strong>Descrizione del progetto:</strong> {{ $project->description }}</p>

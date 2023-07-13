@@ -4,7 +4,7 @@
 
 <div class="container-fluid mt-4">
     <div class="row justify-content-between">
-        <h2>Crea un nuovo Progetto</h2>
+        <h2>Modifica Il progetto</h2>
         @if($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -49,6 +49,15 @@
                     </option>
                 @endforeach
             </select>
+
+            <h5 class="mb-3">Scegli la tecnologia che devi usare</h5>
+            @foreach ($technologies as $i => $technology)
+            <div class="form-check">
+                <input type="checkbox" value="{{$technology->id}}" name="technologies[{{$i}}]" id="technologies{{$i}}" class="form-check-input">
+                {{-- @checked( in_array($technology, old('technologies' ?? $projects->technologies->plunk('id')->toArray()))) --}}
+                <label for="technologies{{$i}}" class="form-check-label"> {{$technology->name}} </label>
+            </div>
+            @endforeach
 
             <input class="form-control mt-4 btn btn-primary" type="submit" value="Crea Progetto">
         </form>

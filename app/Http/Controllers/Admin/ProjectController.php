@@ -74,9 +74,10 @@ class ProjectController extends Controller
     public function edit($id)
     {
         $project = Project::findorFail($id);
+        $technologies = Technology::all();
         $tipes = Tipe::all();
 
-        return view("admin.projects.edit", compact("project", "tipes"));
+        return view("admin.projects.edit", compact("project", "tipes", "technologies"));
     }
 
     /**
@@ -89,10 +90,10 @@ class ProjectController extends Controller
     public function update(UpdateProjectRequest $request, Project $project)
     {
         $data = $request->validated();
-
+        
         $project->update($data);
 
-        $project->tecnologys()->sync($data["tecnologies"]);
+        $project->technologies()->sync($data['technologies']);
 
         return to_route("admin.projects.show", $project);
     }
