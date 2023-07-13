@@ -49,7 +49,7 @@ class ProjectController extends Controller
         $newProject->fill($data);
         $newProject->save();
         
-        $newProject->technologies()->attach($data["technologies"]);
+        $newProject->technologies()->attach($data["technologies"] ?? []);
 
         return to_route("admin.projects.show", $newProject);
     }
@@ -93,7 +93,7 @@ class ProjectController extends Controller
         
         $project->update($data);
 
-        $project->technologies()->sync($data['technologies']);
+        $project->technologies()->sync($data['technologies']  ?? []);
 
         return to_route("admin.projects.show", $project);
     }
@@ -106,6 +106,9 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        //
+        $project->technologies()->detach();
+        $project->delete();
+        
+        return redirect()->route('admin.projects.index');
     }
 }

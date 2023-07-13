@@ -53,8 +53,8 @@
             <h5 class="mb-3">Scegli la tecnologia che devi usare</h5>
             @foreach ($technologies as $i => $technology)
             <div class="form-check">
-                <input type="checkbox" value="{{$technology->id}}" name="technologies[{{$i}}]" id="technologies{{$i}}" class="form-check-input">
-                {{-- @checked( in_array($technology, old('technologies' ?? $projects->technologies->plunk('id')->toArray()))) --}}
+                <input type="checkbox" value="{{$technology->id}}" name="technologies[]" id="technologies{{$i}}" class="form-check-input" 
+                {{ in_array($technology->id, old('technologies', $project->technologies->pluck('id')->toArray())) ? 'checked' : '' }}>
                 <label for="technologies{{$i}}" class="form-check-label"> {{$technology->name}} </label>
             </div>
             @endforeach

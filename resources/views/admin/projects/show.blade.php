@@ -19,6 +19,13 @@
         <h2>{{  $project->repository }}</h2>
     </div>
     <a href="{{ route("admin.projects.edit",$project ) }}" class="btn btn-dark">Modifica il progetto</a>
+    <div>
+        <form id="deleteForm" action="{{ route('admin.projects.destroy', $project) }}" method="post">
+            @csrf
+            @method('DELETE')
+            <input class="btn btn-danger" type="submit" value="Cancella il progetto">
+        </form>
+    </div>
 </div>
 
 @endsection
