@@ -6,26 +6,25 @@
     <div class="row justify-content-between">
         @foreach ($projects as $project)
         <div class="col-4">
-            <div class="card mt-3" style="">
+            <div class="d-flex justify-content-center align-items-center card mt-3" style="height:20rem">
                 <div class="card-body h-25">
                     <h5 class="card-title"><strong>Nome del progetto:</strong> {{ $project->title }}</h5>
-                    <p class="card-text"><strong>Descrizione del progetto:</strong> {{ $project->description }}</p>
                     <p class="card-text"><strong>Nome repository:</strong> {{ $project->repository }}</p>
                     @if ($project->tipe)
-                        <p>Tipo di progetto: {{ $project->tipe->name }} </p>
+                        <p><strong>Tipo di progetto</strong>: {{ $project->tipe->name }} </p>
                     @else
                         <p>Non esiste alcuno tipo per questo progetto</p>
                     @endif 
                     <div class="d-flex">
-                        <p>Tecnologia:</p>
+                        <p><strong>Tecnologia:</strong></p>
                         @forelse ($project->technologies as $technology)
                             <span class="ms-3"> {{$technology->name}} </span>
                         @empty
                             <span>Nessuno</span>
                         @endforelse
                     </div>
-                    <a href="{{ route("admin.projects.show",$project ) }}" class="btn btn-dark">View details</a>
                 </div>
+                <a href="{{ route("admin.projects.show",$project ) }}" class="mb-4 btn btn-dark">View details</a>
             </div>
         </div>
     @endforeach

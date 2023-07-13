@@ -22,25 +22,25 @@
             @method('PUT')
 
 
-            <label for="name">Titolo</label>
+            <label for="name"><strong>Titolo</strong></label>
             <input class="form-control @error('title') is-invalid @enderror" id="title" type="text" value="{{old('title') ?? $project->title}}" name="title">
             @error("title") 
                 <div class="invalid-feedback">Error: {{$message}}</div>
             @enderror
 
-            <label for="name">Descrizione</label>
+            <label for="name"><strong>Descrizione</strong></label>
             <textarea class="form-control @error('description') is-invalid @enderror" id="description" type="text" name="description" cols="30" rows="4">{{old('description') ?? $project->description}}"</textarea>
             @error("description") 
                 <div class="invalid-feedback">Error: {{$message}}</div>
             @enderror
 
-            <label for="name">Repository</label>
+            <label for="name"><strong>Repository</strong></label>
             <input class="form-control @error('repository') is-invalid @enderror" id="repository" type="text" value="{{old('repository') ?? $project->repository}}" name="repository">
             @error("repository") 
                 <div class="invalid-feedback">Error: {{$message}}</div>
             @enderror
 
-            <label for="tipe_id">Type</label>
+            <label for="tipe_id"><strong>Type</strong></label>
             <select class="form-control mb-3" name="tipe_id" id="tipe_id">
                 <option value="" selected>Seleziona il tipo</option>
                 @foreach ($tipes as $tipe)
@@ -50,7 +50,7 @@
                 @endforeach
             </select>
 
-            <h5 class="mb-3">Scegli la tecnologia che devi usare</h5>
+            <h5 class="mb-3"><strong>Scegli la tecnologia che devi usare</strong></h5>
             @foreach ($technologies as $i => $technology)
             <div class="form-check">
                 <input type="checkbox" value="{{$technology->id}}" name="technologies[]" id="technologies{{$i}}" class="form-check-input" 

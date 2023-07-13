@@ -4,27 +4,33 @@
 
 <div class="container-fluid mt-4">
     <div class="row justify-content-between">
-        <h2>Vista dettaglio post</h2>
-        <h1>{{  $project->title }}</h1>
-        <h3>Categoria: {{$project->tipe ? $project->tipe->name : "Senza Tipe"}} </h3>
-        <ul>
-            @foreach ($project->technologies as $technology)
-            <li class="list-unstyled">
-                <h4>Tecnologia usata:  {{$technology->name}}</h4>
-                
-            </li>            
-            @endforeach
-        </ul>
-        <p>{{  $project->description }}</p>
-        <h2>{{  $project->repository }}</h2>
+        <h4 class="mb-4">Vista dettaglio Progetto</h4>
+        <div class="mb-3"><strong>Titolo Progetto: </strong> {{  $project->title }}</div>
+        <div class="mb-3"><strong>Tipo di Progetto</strong>: {{$project->tipe ? $project->tipe->name : "Senza Tipe"}} </div>
+        <div class="d-flex">
+            <div class="mr-0"><strong>Programma Usato:</strong></div>
+            <ul class="d-flex gap-2 ps-2">
+                @foreach ($project->technologies as $technology)
+                <li class="list-unstyled">
+                    {{$technology->name}}
+                </li>            
+                @endforeach
+            </ul>
+        </div>
+        <p><strong>Descrizione Progetto</strong>: {{  $project->description }}</p>
+        <p><strong>Repository Github</strong>:  {{$project->repository }}</p>
     </div>
-    <a href="{{ route("admin.projects.edit",$project ) }}" class="btn btn-dark">Modifica il progetto</a>
-    <div>
-        <form id="deleteForm" action="{{ route('admin.projects.destroy', $project) }}" method="post">
-            @csrf
-            @method('DELETE')
-            <input class="btn btn-danger" type="submit" value="Cancella il progetto">
-        </form>
+    <div class="d-flex justify-content-around">
+        <div>
+            <a href="{{ route("admin.projects.edit",$project ) }}" class="btn btn-dark">Modifica il progetto</a>
+        </div>
+        <div>
+            <form id="deleteForm" action="{{ route('admin.projects.destroy', $project) }}" method="post">
+                @csrf
+                @method('DELETE')
+                <input class="btn btn-danger" type="submit" value="Cancella il progetto">
+            </form>
+        </div>
     </div>
 </div>
 
