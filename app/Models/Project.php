@@ -20,7 +20,7 @@ class Project extends Model
         return $this->belongsTo(Tipe::class);
     }
 
-    public function tecnologys(){
+    public function technologies(){
         return $this->belongsToMany(Technology::class);
     }
 }
