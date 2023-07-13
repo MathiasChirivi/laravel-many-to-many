@@ -28,7 +28,7 @@ class StoreProjectRequest extends FormRequest
             "description" =>"required|min:4|max:65535",
             "repository" =>"nullable|url|min:4|max:255",
             "tipe_id" => "nullable|exists:tipes,id",
-            "tecnologys" => "nullable|exists:tecnologys,id",
+            "technologies" => "nullable|exists:technologies,id",
         ];
     }
 

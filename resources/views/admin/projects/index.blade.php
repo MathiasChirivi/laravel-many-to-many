@@ -16,12 +16,14 @@
                     @else
                         <p>Non esiste alcuno tipo per questo progetto</p>
                     @endif 
-                    <p>Tecnologia:</p>
-                    @forelse ($tecnologys ?? [] as $tecnology)
-                        <span> {{$tecnology->name}} </span>
-                    @empty
-                        <span>Nessuno</span>
-                    @endforelse
+                    <div class="d-flex">
+                        <p>Tecnologia:</p>
+                        @forelse ($project->technologies as $technology)
+                            <span class="ms-3"> {{$technology->name}} </span>
+                        @empty
+                            <span>Nessuno</span>
+                        @endforelse
+                    </div>
                     <a href="{{ route("admin.projects.show",$project ) }}" class="btn btn-dark">View details</a>
                 </div>
             </div>

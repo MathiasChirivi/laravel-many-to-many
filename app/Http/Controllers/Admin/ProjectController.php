@@ -31,9 +31,8 @@ class ProjectController extends Controller
     public function create()
     {
         $tipes = Tipe::all();
-        $technologys = Technology::all();
-
-        return view("admin.projects.create", compact("tipes", "technologys"));
+        $technologies = Technology::all();
+        return view("admin.projects.create", compact("tipes", "technologies"));
     }
 
     /**
@@ -45,12 +44,12 @@ class ProjectController extends Controller
     public function store(StoreProjectRequest $request)
     {
         $data = $request->validated();
-        
+
         $newProject = new Project();
         $newProject->fill($data);
         $newProject->save();
         
-        $newProject->technologys()->attach($data["technologys"]);
+        $newProject->technologies()->attach($data["technologies"]);
 
         return to_route("admin.projects.show", $newProject);
     }

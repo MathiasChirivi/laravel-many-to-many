@@ -9,9 +9,9 @@
         <h3>Categoria: {{$project->tipe ? $project->tipe->name : "Senza Tipe"}} </h3>
         <h4>Tecnologia usata:</h4>
         <ul>
-            @foreach ($tecnologys ?? [] as $tecnology)
+            @foreach ($technologies ?? [] as $technology)
                 <li>
-                    {{$tecnology->name}}
+                    {{$technology->name}}
                 </li>            
             @endforeach
         </ul>
