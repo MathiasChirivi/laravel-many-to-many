@@ -11,6 +11,17 @@
                     <h5 class="card-title"><strong>Nome del progetto:</strong> {{ $project->title }}</h5>
                     <p class="card-text"><strong>Descrizione del progetto:</strong> {{ $project->description }}</p>
                     <p class="card-text"><strong>Nome repository:</strong> {{ $project->repository }}</p>
+                    @if ($project->tipe)
+                        <p>Tipo di progetto: {{ $project->tipe->name }} </p>
+                    @else
+                        <p>Non esiste alcuno tipo per questo progetto</p>
+                    @endif 
+                    <p>Tecnologia:</p>
+                    @forelse ($project->tecnologies as $tecnology)
+                        <span> {{$tecnology->name}} </span>
+                    @empty
+                        <span>Nessuno</span>
+                    @endforelse
                     <a href="{{ route("admin.projects.show",$project ) }}" class="btn btn-dark">View details</a>
                 </div>
             </div>
