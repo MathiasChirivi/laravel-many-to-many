@@ -17,7 +17,7 @@
                         <p>Non esiste alcuno tipo per questo progetto</p>
                     @endif 
                     <p>Tecnologia:</p>
-                    @forelse ($project->tecnologies as $tecnology)
+                    @forelse ($tecnologys ?? [] as $tecnology)
                         <span> {{$tecnology->name}} </span>
                     @empty
                         <span>Nessuno</span>

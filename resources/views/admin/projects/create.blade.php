@@ -46,7 +46,7 @@
                 @endforeach
             </select>
 
-            @foreach ($tecnologies as $i => $tecnology)
+            @foreach ($tecnologys ?? [] as $i => $tecnology)
             <div class="form-check">
                 <input type="checkbox" value="{{$tecnology->id}}" name="tecnologys[]" id="tecnologys{{$i}}" class="form-check-input">
                 <label for="tecnologys{{$i}}" class="form-check-label"> {{$tecnology->name}} </label>
