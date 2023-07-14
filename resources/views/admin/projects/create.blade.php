@@ -17,7 +17,7 @@
         </div>
         @endif
 
-        <form action="{{ route('admin.projects.store') }}" class="needs-validation" method="post">
+        <form action="{{ route('admin.projects.store') }}" class="needs-validation" method="post" enctype="multipart/form-data">
             @csrf
             
             <label for="name">Titolo</label>
@@ -31,6 +31,9 @@
             @error("description") 
                 <div class="invalid-feedback">Error: {{$message}}</div>
             @enderror
+
+            <label for="image">Immagine di copertina</label>
+            <input type="file" name="image" id="image" class="form-control mb-4">
 
             <label for="name">Repository</label>
             <input class="form-control @error('repository') is-invalid @enderror" id="repository" type="text" value="{{ old("repository") }}" name="repository">
