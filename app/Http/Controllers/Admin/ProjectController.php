@@ -46,9 +46,10 @@ class ProjectController extends Controller
     {
         $data = $request->validated();
 
-        $img_path = Storage::put('uploads', $data['image']);
-
-        $data['image'] = $img_path;
+        if($request->hasFile("image")){
+            $img_path = Storage::put('uploads', $data['image']);
+            $data['image'] = $img_path;
+        }
 
         $newProject = new Project();
         $newProject->fill($data);
@@ -96,6 +97,11 @@ class ProjectController extends Controller
     {
         $data = $request->validated();
         
+        if ($request->hasFile("image")) {
+            $img_path = Storage::put('uploads', $request->file('image'));
+            $data['image'] = $img_path;
+        }
+
         $project->update($data);
 
         $project->technologies()->sync($data['technologies']  ?? []);

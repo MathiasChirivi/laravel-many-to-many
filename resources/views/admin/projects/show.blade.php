@@ -5,7 +5,7 @@
 <div class="container-fluid mt-4">
     <div class="d-flex mb-4">
         <div class="d-flex me-5">
-            <img src="{{ asset("storage/>".$project->image)}}" alt="">
+            <img src="{{ asset("storage/".$project->image)}}" alt="">
         </div>
         <div>
             <div class="row justify-content-between">
